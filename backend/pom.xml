@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  pom.xml = "receta" de Maven. Aquí se declara:
+    1) qué versión de Spring Boot usamos (el "parent"),
+    2) qué librerías (dependencias) necesita el backend,
+    3) cómo se compila y empaqueta (plugins).
+  Maven descarga todo solo; nosotros nunca copiamos .jar a mano.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Heredamos de spring-boot-starter-parent: fija versiones compatibles entre sí de TODAS las
+	     librerías de Spring, así no escribimos <version> en cada dependencia. -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>4.1.1</version>
+		<relativePath/>
+	</parent>
+
+	<!-- Coordenadas de nuestro proyecto (identifican el .jar que se genera). -->
+	<groupId>com.taskhabit</groupId>
+	<artifactId>academic-api</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>academic-api</name>
+	<description>API REST TaskHabit Academic (Usuarios, Tareas y Reportes)</description>
+
+	<properties>
+		<!-- Compilamos para Java 21 (LTS). Corre también con un JDK más nuevo (ej. 25). -->
+		<java.version>21</java.version>
+	</properties>
+
+	<dependencies>
+		<!-- API REST: trae Spring MVC + Tomcat embebido + Jackson (convierte objetos Java <-> JSON). -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webmvc</artifactId>
+		</dependency>
+
+		<!-- Spring Data JPA + Hibernate: el ORM que traduce nuestras clases @Entity a tablas SQL
+		     y nos genera los métodos CRUD (save, findById, delete...) sin escribir SQL. -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<!-- Driver JDBC de PostgreSQL: el "traductor" de bajo nivel entre Java y el servidor Postgres.
+		     scope runtime = solo se necesita al ejecutar, nuestro código no lo importa directamente. -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- Flyway: versiona el esquema de la base de datos con scripts SQL (V1__..., V2__...).
+		     Al arrancar ejecuta los scripts que falten, en orden, y lleva registro de cuáles ya corrió. -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-flyway</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-database-postgresql</artifactId>
+		</dependency>
+
+		<!-- Bean Validation: anotaciones como @NotBlank o @Size para validar el JSON que llega. -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+
+		<!-- Spring Security + Resource Server: valida el token JWT de Firebase que manda la app
+		     en el header "Authorization: Bearer ...". Solo necesita el ID del proyecto Firebase. -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security-oauth2-resource-server</artifactId>
+		</dependency>
+
+		<!-- ===================== Solo para pruebas (scope test) ===================== -->
+
+		<!-- H2: base de datos en memoria. Las pruebas corren contra ella (en modo PostgreSQL)
+		     para no depender de tener Postgres instalado. Nunca va en el .jar final. -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-flyway-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security-oauth2-resource-server-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webmvc-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<!-- Permite "mvnw spring-boot:run" y empaqueta un .jar ejecutable con Tomcat adentro. -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

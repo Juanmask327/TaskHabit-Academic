@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TaskHabit Academic</string>
+
+    <!-- ===== Login / Registro ===== -->
+    <string name="login_subtitulo">Inicia sesión para continuar</string>
+    <string name="hint_correo">Correo electrónico</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="boton_iniciar_sesion">Iniciar sesión</string>
+    <string name="link_ir_a_registro">¿No tienes cuenta? Regístrate</string>
+    <string name="error_correo_vacio">Escribe tu correo</string>
+    <string name="error_password_vacio">Escribe tu contraseña</string>
+    <string name="error_login_fallido">Correo o contraseña incorrectos</string>
+
+    <string name="registro_titulo">Crear cuenta</string>
+    <string name="registro_subtitulo">Completa tus datos para empezar</string>
+    <string name="navegar_atras">Volver</string>
+    <string name="hint_nombre">Nombre completo</string>
+    <string name="helper_password">Mínimo 6 caracteres</string>
+    <string name="hint_rol">Soy:</string>
+    <string name="rol_estudiante">Estudiante</string>
+    <string name="rol_docente">Docente</string>
+    <string name="boton_registrarme">Registrarme</string>
+    <string name="link_ir_a_login">¿Ya tienes cuenta? Inicia sesión</string>
+    <string name="error_nombre_vacio">Escribe tu nombre</string>
+    <string name="error_password_corto">La contraseña debe tener al menos 6 caracteres</string>
+    <string name="error_registro_fallido">No se pudo crear la cuenta (¿ese correo ya está registrado?)</string>
+    <string name="error_sincronizar_api">Tu cuenta se creó, pero no se pudo conectar con el servidor. Revisa que el backend esté encendido y el teléfono conectado a la computadora, o inténtalo de nuevo.</string>
+
+    <!-- ===== Menú principal (según rol) ===== -->
+    <string name="bienvenida">Bienvenido, %1$s</string>
+    <string name="error_cargar_perfil">No se pudo cargar tu perfil. Revisa tu conexión con el servidor e inténtalo de nuevo.</string>
+    <string name="boton_crear_sesion">Crear sesión y QR</string>
+    <string name="boton_ver_asistencia">Ver asistencia de mis sesiones</string>
+    <string name="boton_escanear_asistencia">Escanear QR (registrar asistencia)</string>
+    <string name="boton_cerrar_sesion">Cerrar sesión</string>
+    <string name="aviso_duplicado">Ya tenías una asistencia válida en esta sesión. No se duplicó.</string>
+
+    <!-- ===== Módulo de asistencia (QR + GPS) ===== -->
+    <string name="titulo_sesion_docente">Sesión de clase</string>
+    <string name="hint_nombre_clase">Nombre de la clase</string>
+    <string name="hint_radio">Radio permitido</string>
+    <string name="helper_radio">Distancia máxima al salón, entre 20 y 1000 m</string>
+    <string name="hint_vigencia">Vigencia del QR</string>
+    <string name="helper_vigencia">En minutos, entre 1 y 240</string>
+    <string name="boton_generar">Obtener ubicación y generar QR</string>
+    <string name="error_nombre_vacio_clase">Escribe el nombre de la clase</string>
+    <string name="error_radio">Ingresa un valor entre 20 y 1000</string>
+    <string name="error_vigencia">Ingresa un valor entre 1 y 240</string>
+    <string name="estado_obteniendo_ubicacion">Obteniendo la ubicación del salón…</string>
+    <string name="estado_qr_listo">QR listo. Muéstralo a tus estudiantes.</string>
+    <string name="info_sesion">Clase: %1$s\nVálido hasta las %2$s\nRadio: %3$d m\nPrecisión del GPS al crear: ±%4$d m</string>
+    <string name="descripcion_qr">Código QR de asistencia de %1$s</string>
+    <string name="error_qr">No se pudo generar el código QR.</string>
+    <string name="boton_ver_asistentes">Ver asistentes de esta sesión</string>
+
+    <string name="error_sin_permiso_ubicacion">Falta el permiso de ubicación precisa.</string>
+    <string name="error_gps_apagado">El GPS está apagado. Actívalo e inténtalo de nuevo.</string>
+    <string name="error_sin_senal_gps">No se obtuvo la ubicación. Acércate a una ventana o sal a un lugar abierto e inténtalo de nuevo.</string>
+    <string name="error_ubicacion_fallo">No se pudo obtener la ubicación.</string>
+
+    <string name="titulo_escaner">Registrar asistencia</string>
+    <string name="estado_permisos">Faltan permisos</string>
+    <string name="detalle_permisos">Necesitamos la cámara para leer el QR y la ubicación precisa para confirmar que estás en el salón.</string>
+    <string name="boton_permisos">Conceder permisos</string>
+    <string name="boton_ajustes">Abrir ajustes</string>
+    <string name="estado_apunta">Apunta al código QR</string>
+    <string name="detalle_apunta">Ubica el QR del docente dentro del marco.</string>
+    <string name="estado_qr_invalido">Este QR no es de TaskHabit</string>
+    <string name="detalle_qr_invalido">Pide al docente que te muestre el QR de asistencia.</string>
+    <string name="estado_verificando">Verificando ubicación…</string>
+    <string name="detalle_verificando">Clase: %1$s</string>
+    <string name="estado_valida">Asistencia válida</string>
+    <string name="detalle_valida">Clase: %1$s\nEstás a %2$d m del salón (máximo %3$d m).</string>
+    <string name="estado_vencido">El QR ya venció</string>
+    <string name="detalle_vencido">Clase: %1$s\nPide al docente que genere uno nuevo.</string>
+    <string name="estado_fuera">Estás fuera del salón</string>
+    <string name="detalle_fuera">Clase: %1$s\nEstás a %2$d m del salón y el máximo es %3$d m.</string>
+    <string name="estado_simulada">Ubicación no confiable</string>
+    <string name="detalle_simulada">Se detectó una ubicación simulada. Desactiva las apps de GPS falso.</string>
+    <string name="estado_error">No se pudo verificar</string>
+    <string name="error_camara">No se pudo iniciar la cámara.</string>
+    <string name="boton_reintentar">Escanear de nuevo</string>
+    <string name="boton_listo">Listo</string>
+    <string name="boton_cerrar">Cerrar</string>
+
+    <!-- ===== Lista de asistencia (docente) ===== -->
+    <string name="titulo_lista">Asistencia de la clase</string>
+    <string name="hint_sesion">Sesión</string>
+    <string name="boton_actualizar">Actualizar</string>
+    <string name="lista_sin_sesiones">Aún no has creado sesiones. Crea una con \"Crear sesión y QR\".</string>
+    <string name="lista_sin_registros">Aún nadie ha registrado asistencia en esta sesión.</string>
+    <string name="lista_resumen">Válidas: %1$d · Rechazadas: %2$d</string>
+    <string name="sesion_etiqueta">%1$s · %2$s %3$s</string>
+    <string name="fila_detalle">%1$s · a %2$d m del salón</string>
+    <string name="lista_motivo_qr_vencido">Rechazada: el QR estaba vencido</string>
+    <string name="lista_motivo_fuera_de_radio">Rechazada: fuera del radio del salón</string>
+    <string name="lista_motivo_ubicacion_simulada">Rechazada: ubicación simulada</string>
+
+    <string name="titulo_tareas">Tareas y hábitos</string>
+    <string name="lista_tareas_vacia">No tienes tareas ni hábitos todavía. Toca + para crear el primero.</string>
+    <string name="boton_agregar_tarea">Agregar tarea o hábito</string>
+    <string name="boton_eliminar_tarea">Eliminar</string>
+    <string name="tipo_tarea">Tarea</string>
+    <string name="tipo_habito">Hábito</string>
+    <string name="etiquetas_fila">%1$s · %2$s</string>
+    <string name="prioridad_baja">Baja</string>
+    <string name="prioridad_media">Media</string>
+    <string name="prioridad_alta">Alta</string>
+    <string name="form_titulo_nueva">Nueva tarea</string>
+    <string name="form_titulo_editar">Editar</string>
+    <string name="hint_titulo_tarea">Título</string>
+    <string name="hint_descripcion_tarea">Descripción (opcional)</string>
+    <string name="hint_tipo_tarea">Tipo</string>
+    <string name="hint_prioridad_tarea">Prioridad</string>
+    <string name="error_titulo_vacio">Escribe un título</string>
+    <string name="boton_guardar_tarea">Guardar</string>
+    <string name="boton_mis_tareas">Mis tareas y hábitos</string>
+    <string name="aviso_sin_conexion_tareas">Sin conexión con el servidor. Tus cambios están guardados en el celular y se subirán al reconectar.</string>
+
+    <!-- ===== Reportes ===== -->
+    <string name="boton_mis_reportes">Mis reportes de desempeño</string>
+    <string name="titulo_reportes">Reportes</string>
+    <string name="lista_reportes_vacia">Aún no tienes reportes. Toca + para generar el primero.</string>
+    <string name="error_cargar_reportes">No se pudo conectar con el servidor. Los reportes necesitan conexión.</string>
+    <string name="error_guardar_reporte">No se pudo guardar el reporte. Revisa tu conexión e inténtalo de nuevo.</string>
+    <string name="error_eliminar_reporte">No se pudo eliminar el reporte. Revisa tu conexión.</string>
+    <string name="boton_generar_reporte">Generar reporte</string>
+    <string name="boton_guardar_reporte">Generar reporte</string>
+    <string name="boton_eliminar_reporte">Eliminar reporte</string>
+    <string name="form_reporte_nuevo">Nuevo reporte</string>
+    <string name="form_reporte_editar">Editar reporte</string>
+    <string name="hint_titulo_reporte">Título (ej. Semana 4)</string>
+    <string name="hint_periodo">Periodo</string>
+    <string name="hint_observaciones">Observaciones (opcional)</string>
+    <string name="ayuda_reporte">Los totales se calculan en el servidor con las tareas y hábitos que creaste en el periodo.</string>
+    <string name="reporte_periodo">%1$s – %2$s</string>
+    <string name="reporte_porcentaje">%1$d%%</string>
+    <string name="reporte_detalle">Tareas %1$d/%2$d · Hábitos %3$d/%4$d</string>
+</resources>
