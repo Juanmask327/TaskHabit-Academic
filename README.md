@@ -30,7 +30,7 @@ App Android (Java)  ──HTTP + token de Firebase──▶  API REST (Spring Bo
 - **Base de datos:** el esquema lo crea Flyway con migraciones versionadas. Las reglas de negocio están protegidas también en la base (roles y prioridades válidos, periodos de reporte coherentes, borrado lógico de usuarios).
 - **Red:** la API solo escucha en `127.0.0.1` del computador. El teléfono llega a ella por un túnel de `adb reverse` que se crea solo en cada compilación, así el servidor nunca queda expuesto en la red.
 
-## Capturas
+
 
 <!-- Agregar las imágenes en docs/capturas/ y descomentar -->
 <!--
